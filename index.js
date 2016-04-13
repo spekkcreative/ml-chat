@@ -5,7 +5,7 @@ var io = require('socket.io')(http);
 var user = "billythefridge";
 
 app.get('/', function(req, res){
-  res.sendfile('index.html');
+  res.sendfile('index.php');
 });
 
 io.on('connection', function(socket){
@@ -17,7 +17,7 @@ http.listen(443, function(){
 });
 
 io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
+  socket.on('message', function(msg){
     console.log('message: ' + msg);
   });
 });

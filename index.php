@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>Mikes Lessons Chat</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
@@ -21,14 +21,14 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
-    var user = <?php $_GET['user']; ?>;
+    var user = '<?php $_GET['user']; ?>';
       var socket = io();
       $('form').submit(function(){
-        socket.emit('chat message', $('#m').val());
+        socket.emit('message', $('#m').val());
         $('#m').val('');
         return false;
       });
-      socket.on('chat message', function(msg){
+      socket.on('message', function(msg){
         $('#messages').append($('<li>').text(msg));
       });
     </script>
