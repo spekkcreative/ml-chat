@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('../..')(server);
-var port = 443 || 3000;
+var port = 443 || 80;
 
 server.listen(port, function () {
   console.log('Server listening at port %d', port);
