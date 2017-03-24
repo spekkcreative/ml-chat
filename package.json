@@ -1,9 +1,9 @@
 {
-  "name": "socket-chat-example",
+  "name": "mlchat",
   "version": "0.0.1",
-  "description": "my first socket.io app",
+  "description": "Mikeslessons Chat",
   "dependencies": {
-    "express": "^4.10.2",
-    "socket.io": "^1.4.5"
+    "express": "^4.15.2",
+    "socket.io": "^1.7.3"
   }
 }
