@@ -3,8 +3,8 @@ var fs = require('fs');
 var https = require('https');
 
 var sslOptions = {
-  key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem'),
+  key: fs.readFileSync('shared/config/key.pem'),
+  cert: fs.readFileSync('shared/config/cert.pem'),
   passphrase: 'test'
 };
 
@@ -14,7 +14,7 @@ var io = require('socket.io')(server);
 io.set('origins', '*:*.mikeslessons.com');
 
 server.listen(8443, function(){
-    console.log('listening on *:8443');
+    console.log('listening on *:443');
 });
 
 var numUsers = 0;
