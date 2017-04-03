@@ -8,14 +8,15 @@ var sslOptions = {
   passphrase: 'test'
 };
 
-var server = https.createServer(sslOptions,app).listen(8443);
+var server = https.createServer(sslOptions,app).listen(443);
 
 var io = require('socket.io')(server);
 io.set('origins', '*:*.mikeslessons.com');
 
-server.listen(8443, function(){
+server.listen(443, function(){
     console.log('listening on *:443');
 });
+app.use(express.static(__dirname + '/public'));
 
 var numUsers = 0;
 
