@@ -11,7 +11,7 @@ var sslOptions = {
   passphrase: ''
 };
 
-var server = https.createServer(app).listen(port);
+var server = https.createServer(sslOptions,app).listen(port);
 
 var io = require('socket.io')(server);
 io.set('origins', '*:*.mikeslessons.com');
