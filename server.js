@@ -1,22 +1,24 @@
 var app = require('express')();
 var fs = require('fs');
-var https = require('https');
+//var https = require('https');
+var https = require('http');
 
-var port = 443;
-
+var port = 80;
+/*
 var sslOptions = {
   key: fs.readFileSync('shared/config/private.pem'),
   cert: fs.readFileSync('shared/config/public.pem'),
-  passphrase: 'test'
+  passphrase: ''
 };
+*/
 
-var server = https.createServer(sslOptions,app).listen(port);
+var server = https.createServer(app).listen(port);
 
 var io = require('socket.io')(server);
 io.set('origins', '*:*.mikeslessons.com');
 
 server.listen(port, function(){
-    console.log('listening on *:');
+    console.log('listening on:'+port);
 });
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/public/index.html');
@@ -39,6 +41,8 @@ io.on('connection', function (socket) {
     // when the client emits 'add user', this listens and executes
     socket.on('add user', function (username) {
         if (addedUser) return;
+
+        console.log(username);
 
         // we store the username in the socket session for this client
         socket.username = username;
@@ -78,7 +82,6 @@ io.on('connection', function (socket) {
             username: socket.username
         });
     });
-
-
     */
+
 });
