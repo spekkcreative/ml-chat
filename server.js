@@ -1,16 +1,15 @@
 var app = require('express')();
 var fs = require('fs');
-//var https = require('https');
-var https = require('http');
+var https = require('https');
+//var https = require('http');
 
-var port = 80;
-/*
+var port = 443;
+
 var sslOptions = {
-  key: fs.readFileSync('shared/config/private.pem'),
-  cert: fs.readFileSync('shared/config/public.pem'),
+  key: fs.readFileSync(__dirname + '/shared/config/private.pem'),
+  cert: fs.readFileSync(__dirname + '/shared/config/public.pem'),
   passphrase: ''
 };
-*/
 
 var server = https.createServer(app).listen(port);
 
