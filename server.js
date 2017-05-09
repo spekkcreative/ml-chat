@@ -5,8 +5,8 @@ var https = require('https');
 var port = 443;
 
 var sslOptions = {
-  key: fs.readFileSync('shared/config/key.pem'),
-  cert: fs.readFileSync('shared/config/cert.pem'),
+  key: fs.readFileSync('shared/config/private.pem'),
+  cert: fs.readFileSync('shared/config/public.pem'),
   passphrase: 'test'
 };
 
