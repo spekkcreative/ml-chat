@@ -2,21 +2,25 @@ var app = require('express')();
 var fs = require('fs');
 var https = require('https');
 
+var port = 443;
+
 var sslOptions = {
   key: fs.readFileSync('shared/config/key.pem'),
   cert: fs.readFileSync('shared/config/cert.pem'),
   passphrase: 'test'
 };
 
-var server = https.createServer(sslOptions,app).listen(443);
+var server = https.createServer(sslOptions,app).listen(port);
 
 var io = require('socket.io')(server);
 io.set('origins', '*:*.mikeslessons.com');
 
-server.listen(443, function(){
-    console.log('listening on *:443');
+server.listen(port, function(){
+    console.log('listening on *:');
 });
-app.use(express.static(__dirname + '/public'));
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/public/index.html');
+});
 
 var numUsers = 0;
 
