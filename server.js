@@ -1,8 +1,6 @@
 var app = require('express')();
 var fs = require('fs');
 var https = require('https');
-//var https = require('http');
-
 var port = 443;
 
 var sslOptions = {
