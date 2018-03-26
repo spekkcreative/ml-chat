@@ -4,21 +4,21 @@ var https = require('https');
 var port = 443;
 
 var sslOptions = {
-  key: fs.readFileSync(__dirname + '/shared/config/private.pem'),
-  cert: fs.readFileSync(__dirname + '/shared/config/public.pem'),
-  passphrase: ''
+    key: fs.readFileSync(__dirname + '/shared/config/private.key'),
+    cert: fs.readFileSync(__dirname + '/shared/config/public.crt'),
+    passphrase: ''
 };
 
-var server = https.createServer(sslOptions,app).listen(port);
+var server = https.createServer(sslOptions, app).listen(port);
 
 var io = require('socket.io')(server);
 io.set('origins', '*:*.mikeslessons.com');
 
-server.listen(port, function(){
-    console.log('listening on:'+port);
+server.listen(port, function () {
+    console.log('listening on:' + port);
 });
-app.get('/', function(req, res){
-  res.sendFile(__dirname + '/public/index.html');
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 var numUsers = 0;
