@@ -6,6 +6,7 @@ var port = 443;
 var sslOptions = {
     key: fs.readFileSync(__dirname + '/shared/config/private.key'),
     cert: fs.readFileSync(__dirname + '/shared/config/public.crt'),
+    ca: [fs.readFileSync('/shared/config/bundle.crt')],
     passphrase: ''
 };
 
