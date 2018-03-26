@@ -1,7 +1,7 @@
 var app = require('express')();
 var fs = require('fs');
-var https = require('https');
-var port = 443;
+var https = require('http');
+var port = 80;
 
 var sslOptions = {
     key: fs.readFileSync(__dirname + '/shared/config/private.key'),
@@ -10,7 +10,7 @@ var sslOptions = {
     passphrase: ''
 };
 
-var server = https.createServer(sslOptions, app).listen(port);
+var server = http.createServer(app).listen(port);
 
 var io = require('socket.io')(server);
 io.set('origins', '*:*.mikeslessons.com');
