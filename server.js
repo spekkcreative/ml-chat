@@ -5,10 +5,9 @@ var port = 443;
 var numUsers = 0;
 
 var sslOptions = {
-    key: fs.readFileSync(__dirname + '/shared/config/private.key'),
-    cert: fs.readFileSync(__dirname + '/shared/config/pub.crt'),
-    ca: fs.readFileSync(__dirname + '/shared/config/bundle.crt'),
-    passphrase: ''
+    key: fs.readFileSync(__dirname + '/shared/config/chatkey.pem'),
+    cert: fs.readFileSync(__dirname + '/shared/config/chatcert.pem'),
+    passphrase: 'mlchat'
 };
 
 var server = https.createServer(app).listen(port);
