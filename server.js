@@ -16,7 +16,7 @@ var io = require('socket.io')(server);
 io.set('origins', '*:*.mikeslessons.com');
 
 server.listen(port, function () {
-    console.log('listening on:' + port);
+    //console.log('listening on:' + port);
 });
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/public/index.html');
@@ -40,7 +40,7 @@ io.on('connection', function (socket) {
     socket.on('add user', function (username) {
         if (addedUser) return;
 
-        console.log(username);
+        //console.log(username);
 
         // we store the username in the socket session for this client
         socket.username = username;
