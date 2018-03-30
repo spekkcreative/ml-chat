@@ -1,17 +1,16 @@
 var app = require('express')();
 var fs = require('fs');
-var http = require('http');
-var port = 80;
+var https = require('https');
+var port = 443;
 var numUsers = 0;
 
 var sslOptions = {
     key: fs.readFileSync(__dirname + '/shared/config/private.key'),
     cert: fs.readFileSync(__dirname + '/shared/config/pub.crt'),
-    ca: [fs.readFileSync(__dirname + '/shared/config/bundle1.crt'), fs.readFileSync(__dirname + '/shared/config/bundle2.crt'), fs.readFileSync(__dirname + '/shared/config/bundle3.crt')],
     passphrase: ''
 };
 
-var server = http.createServer(app).listen(port);
+var server = https.createServer(sslOptions, app).listen(port);
 var io = require('socket.io')(server);
 io.set('origins', '*:*.mikeslessons.com');
 
