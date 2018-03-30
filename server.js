@@ -13,7 +13,7 @@ var sslOptions = {
 
 var server = http.createServer(app).listen(port);
 var io = require('socket.io')(server);
-//io.set('origins', '*:*.mikeslessons.com');
+io.set('origins', '*:*.mikeslessons.com');
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/public/index.html');
