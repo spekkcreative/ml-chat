@@ -5,10 +5,9 @@ var port = 443;
 var numUsers = 0;
 
 var sslOptions = {
-    key: fs.readFileSync(__dirname + '/shared/config/private.key'),
+    key: fs.readFileSync(__dirname + '/shared/config/private.pem'),
     cert: fs.readFileSync(__dirname + '/shared/config/pub.pem'),
     ca: fs.readFileSync(__dirname + '/shared/config/chain.pem'),
-    passphrase: ''
 };
 
 var server = https.createServer(sslOptions, app).listen(port);
