@@ -6,7 +6,8 @@ var numUsers = 0;
 
 var sslOptions = {
     key: fs.readFileSync(__dirname + '/shared/config/private.key'),
-    cert: fs.readFileSync(__dirname + '/shared/config/pub.crt'),
+    cert: fs.readFileSync(__dirname + '/shared/config/pub.pem'),
+    ca: fs.readFileSync(__dirname + '/shared/config/chain.pem'),
     passphrase: ''
 };
 
