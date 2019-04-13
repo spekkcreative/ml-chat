@@ -7,7 +7,7 @@
     "body-parser": "^1.18.3",
     "debug": "^3.2.6",
     "depd": "^1.1.2",
-    "express": "^4.16.4",
+    "express": "^4.15.2",
     "finalhandler": "^1.1.1",
     "merge-descriptors": "^1.0.1",
     "methods": "^1.1.2",
