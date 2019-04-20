@@ -1,22 +1,23 @@
-var app = require('express')();
 var fs = require('fs');
-var https = require('https');
-var port = 443;
 var numUsers = 0;
-
-var sslOptions = {
+var options = {
     key: fs.readFileSync(__dirname + '/shared/config/private.pem'),
     cert: fs.readFileSync(__dirname + '/shared/config/pub.pem'),
-    ca: fs.readFileSync(__dirname + '/shared/config/chain.pem'),
+    ca: fs.readFileSync(__dirname + '/shared/config/chain.pem')
 };
-
-var server = https.createServer(sslOptions, app).listen(port);
-var io = require('socket.io')(server);
-io.set('origins', '*:*.mikeslessons.com');
+var app = require('express')();
+var https = require('https');
+var io = require('socket.io')(https);
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/public/index.html');
 });
+
+var server = https.createServer(options, app);
+server.listen(8443);
+
+var io = require('socket.io').listen(server);
+io.set('origins', '*:*.mikeslessons.com');
 
 io.on('connection', function (socket) {
     var addedUser = false;
@@ -57,5 +58,4 @@ io.on('connection', function (socket) {
             });
         }
     });
-
 });

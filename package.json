@@ -1,18 +1,9 @@
 {
-  "name": "mlchat",
-  "version": "0.0.1",
-  "description": "Mikeslessons Chat",
-  "dependencies": {
-    "array-flatten": "^2.1.2",
-    "body-parser": "^1.18.3",
-    "debug": "^3.2.6",
-    "depd": "^1.1.2",
-    "express": "^4.15.2",
-    "finalhandler": "^1.1.1",
-    "merge-descriptors": "^1.0.1",
-    "methods": "^1.1.2",
-    "path-to-regexp": "^2.4.0",
-    "socket.io": "^2.2.0",
-    "utils-merge": "^1.0.1"
-  }
+    "name": "mlchat",
+    "version": "0.0.1",
+    "description": "Mikeslessons Chat",
+    "dependencies": {
+        "express": "^4.15.2",
+        "socket.io": "^2.2.0"
+    }
 }
